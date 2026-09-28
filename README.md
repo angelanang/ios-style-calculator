@@ -2,7 +2,7 @@
 
 🧮 A recreation of the iOS calculator interface built with HTML, CSS, and JavaScript
 
-**Live demo:** _coming soon_
+**Live demo:** https://angelanang.github.io/ios-style-calculator/
 
 Built as a mini project during  my internship at MBOA DIGITAL, to show the JavaScript concepts I learned in my courses. It is entirely written in just HTML, CSS and JavaScript.
 
