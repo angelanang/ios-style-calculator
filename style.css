@@ -55,7 +55,7 @@ body {
   justify-content: flex-end;
   align-items: flex-end;
 
-  /* Long numbers stay on one line (the JS makes the font smaller for them) */
+  /* Long numbers stay on one line (JS makes the font smaller for them) */
   white-space: nowrap;
   overflow: hidden;
 }
