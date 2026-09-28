@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="icon" href="assets/images/calculator.png" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- The browser will know that it is downloading the stylesheet for this page -->
+    <script src="script.js" defer></script>
+    <!-- The browser is being told that the external JavaScript file I just referenced is to be downloaded in the background and run only after the HTML is fully parsed -->
+  </head>
+  <body>
+    <main class="calculator">
+      <div class="display">0</div>
+
+      <div class="keypad">
+        <!-- Each button below is to be used or manipulated at some point so they all get: a class to identify them, a data-type to classify them, a data-action to describe them -->
+
+        <!-- Row 1: functions + divide -->
+        <button
+          class="btn btn--function"
+          data-type="action"
+          data-action="clear"
+        >
+          AC
+        </button>
+        <button class="btn btn--function" data-type="action" data-action="sign">
+          ±
+        </button>
+        <button
+          class="btn btn--function"
+          data-type="action"
+          data-action="percent"
+        >
+          %
+        </button>
+        <button class="btn btn--operator" data-type="operator" data-value="/">
+          ÷
+        </button>
+
+        <!-- Row 2 -->
+        <button class="btn btn--digit" data-type="digit" data-value="7">
+          7
+        </button>
+        <button class="btn btn--digit" data-type="digit" data-value="8">
+          8
+        </button>
+        <button class="btn btn--digit" data-type="digit" data-value="9">
+          9
+        </button>
+        <button class="btn btn--operator" data-type="operator" data-value="*">
+          ×
+        </button>
+
+        <!-- Row 3 -->
+        <button class="btn btn--digit" data-type="digit" data-value="4">
+          4
+        </button>
+        <button class="btn btn--digit" data-type="digit" data-value="5">
+          5
+        </button>
+        <button class="btn btn--digit" data-type="digit" data-value="6">
+          6
+        </button>
+        <button class="btn btn--operator" data-type="operator" data-value="-">
+          −
+        </button>
+
+        <!-- Row 4 -->
+        <button class="btn btn--digit" data-type="digit" data-value="1">
+          1
+        </button>
+        <button class="btn btn--digit" data-type="digit" data-value="2">
+          2
+        </button>
+        <button class="btn btn--digit" data-type="digit" data-value="3">
+          3
+        </button>
+        <button class="btn btn--operator" data-type="operator" data-value="+">
+          +
+        </button>
+
+        <!-- Row 5: about (logo), zero, decimal, equals -->
+        <button
+          class="btn btn--function btn--about"
+          data-type="action"
+          data-action="about"
+        >
+          <img src="assets/images/calculator.png" alt="About this calculator" />
+        </button>
+        <button class="btn btn--digit" data-type="digit" data-value="0">
+          0
+        </button>
+        <button class="btn btn--digit" data-type="decimal">,</button>
+        <button class="btn btn--operator" data-type="equals">=</button>
+      </div>
+    </main>
+
+    <!-- Modal Window: hidden until the logo button is clicked -->
+    <div class="modal hidden">
+      <button class="modal__close">&times;</button>
+      <h2>About this calculator</h2>
+      <p>
+        A calculator inspired by the iPhone's, built with plain HTML, CSS and
+        JavaScript by Angela Nang as the closing project of her internship at
+        MBOA DIGITAL.
+      </p>
+      <p>Not affiliated with Apple.</p>
+
+      <h3>Credits</h3>
+      <p>
+        <a
+          href="https://www.flaticon.com/free-icons/calculate"
+          title="calculate icons"
+          target="_blank"
+          rel="noopener"
+          >Calculate icons created by Pixel perfect - Flaticon</a
+        >
+      </p>
+    </div>
+    <div class="overlay hidden"></div>
+  </body>
+</html>

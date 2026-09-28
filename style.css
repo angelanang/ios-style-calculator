@@ -1,0 +1,189 @@
+/*
+--- COLORS (close to the iPhone ones)
+
+- Background: #000
+- Digits: #333 (pressed: #737373)
+- Functions: #a5a5a5 (pressed: #d9d9d9)
+- Operators: #ff9f0a (pressed: #fcc78d)
+*/
+
+/* GENERAL */
+
+/* Removing the spacing the browser adds by default, and making the width and height of every element include its padding and border */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* The browser's default font size is 16px, 62.5% of it is 10px, so 1rem = 10px */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  /* The browser goes through this list from left to right and uses the first font it finds on the device */
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+
+  /* Centering the calculator on the page, horizontally AND vertically */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.4rem;
+}
+
+/* CALCULATOR */
+
+.calculator {
+  width: 100%;
+  max-width: 36rem;
+}
+
+.display {
+  font-size: 8rem;
+  font-weight: 300;
+  padding: 0 1rem 1.6rem;
+
+  /* The height stays the same even when the font gets smaller, so the keypad doesn't jump up */
+  height: 11.6rem;
+  /* The number sits at the bottom right of the display */
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  /* Long numbers stay on one line (the JS makes the font smaller for them) */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* 4 columns of the same width, the grid creates the 5 rows by itself */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+}
+
+/* BUTTONS */
+
+.btn {
+  /* A square with fully rounded corners gives a circle */
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: none;
+  /* Buttons don't take the font of the page by themselves */
+  font-family: inherit;
+  font-size: 3.4rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn--digit {
+  background-color: #333;
+}
+
+/* :active is the moment the button is being pressed */
+.btn--digit:active {
+  background-color: #737373;
+}
+
+.btn--function {
+  background-color: #a5a5a5;
+  color: #000;
+}
+
+.btn--function:active {
+  background-color: #d9d9d9;
+}
+
+.btn--operator {
+  background-color: #ff9f0a;
+  font-size: 4rem;
+}
+
+.btn--operator:active {
+  background-color: #fcc78d;
+}
+
+/* The operator waiting for the next number (the JS adds and removes this class) */
+.btn--operator.btn--active {
+  background-color: #fff;
+  color: #ff9f0a;
+}
+
+/* The logo inside the about button */
+.btn--about img {
+  display: block;
+  width: 55%;
+  margin: 0 auto;
+}
+
+/* MODAL WINDOW */
+
+.modal {
+  /* top and left put the modal's top left corner in the middle of the screen, then translate moves it back by half of its own size, so its center ends up in the middle */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Above the overlay (5) */
+  z-index: 10;
+
+  width: 90%;
+  max-width: 40rem;
+  padding: 3.2rem;
+  border-radius: 1.6rem;
+  background-color: #1c1c1e;
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.modal h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.modal h3 {
+  font-size: 1.8rem;
+  margin: 2.4rem 0 0.8rem;
+}
+
+/* Every paragraph that comes right after another paragraph */
+.modal p + p {
+  margin-top: 1.2rem;
+}
+
+.modal a {
+  color: #ff9f0a;
+}
+
+.modal__close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.6rem;
+  font-size: 3.2rem;
+  background: none;
+  border: none;
+  color: #a5a5a5;
+  cursor: pointer;
+}
+
+/* The dark and blurry layer covering the whole page behind the modal */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.hidden {
+  display: none;
+}
